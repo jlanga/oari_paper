@@ -1,0 +1,8 @@
+for i in 1_1 2_1 3_1
+do
+	picard-tools SortSam \
+		I=${i}.q20.rmd.sort.bam \
+		O=${i}.def.bam \
+		VALIDATION_STRINGENCY=SILENT \
+		SO=coordinate
+done

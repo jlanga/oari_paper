@@ -1,0 +1,33 @@
+#!/bin/python
+import sys
+
+# Take from the command line the inputs
+fileInName  = sys.argv[1]
+fileOutName = sys.argv[2]
+
+# Open the input and output files
+fileIn  = open(fileInName  , 'r')
+fileOut = open(fileOutName , 'w')
+
+# Initialize the dictionary 
+coverageDict = {}
+
+# Read the files and store what it is beign processed
+for line in fileIn:
+    line2 = line.strip().split('\t')
+    coverage = int(line2[2])
+    if coverage in coverageDict:
+        coverageDict[coverage] = coverageDict[coverage] + 1
+    else:
+        coverageDict[coverage] = 1
+
+# Compute the range of coverages
+minimum = min(coverageDict.keys())
+maximum = max(coverageDict)
+
+# Write the output in the form coverage - tab - nucleotides with that coverage
+for i in range(minimum, maximum+1):
+    if i in coverageDict:
+        fileOut.write(str(i) + '\t' + str(coverageDict[i]) + '\n')
+    else:
+        fileOut.write(str(i) + '\t' + '0'                  + '\n')

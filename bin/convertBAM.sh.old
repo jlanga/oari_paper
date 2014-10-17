@@ -1,0 +1,10 @@
+for i in 1_1 2_1 3_1
+do
+	samtools view                                   \
+		-@           24                         \
+		-S \
+		-b \
+		-h \
+		${i}_.sam \
+		> ${i}_.bam
+done
