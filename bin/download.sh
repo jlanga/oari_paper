@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# Variable for the raw reads directory
 rawWD=data/reads/raw
 
 mkdir -p $rawWD
 
+# Download sequences from Macrogen
 for i in {1..3}_1_{1,2}
 do
     wget \
@@ -12,6 +14,15 @@ do
         -O ${rawWD}/${i}.fastq.gz
 done
 
+# Recompress to free space
+for i in {1..3}_1_{1,2}
+do
+	pigz -dc ${rawWD}/${i}.fastq.gz | pigz -9 > ${rawWD}/tmp.gz && mv ${rawWD}/tmp.gz ${rawWD}/${i}.fastq.gz
+done
+
+
+# Empty file
 cat /dev/null > ${rawWD}/sard.md5
 
-parallel md5sum {} ::: ${rawWD}/*.fastq.gz >> ${rawWD}/sard.md5
+# Compute md5
+parallel -k md5sum {} ::: ${rawWD}/*.fastq.gz >> ${rawWD}/sard.md5
