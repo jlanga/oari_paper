@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o nounset # Prevent using undefined variables
+set -o errexit # Stop the entire script if an error found
+
 # Variable for the raw reads directory
 rawWD=data/reads/raw
 

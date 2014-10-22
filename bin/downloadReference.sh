@@ -1,9 +1,14 @@
 #!/bin/bash
 
+set -o nounset # Prevent using undefined variables
+set -o errexit # Stop the entire script if an error found
+
+# ENV
 referenceWD=data/reference
-
+indexWD=data/index
 mkdir -p $referenceWD
-
+mkdir -p $indexWD
+S
 # Standard chromosomes
 for i in {1..26} X MT
 do
@@ -23,3 +28,12 @@ wget \
 pigz -dc \
     ${referenceWD}/oari_v3.1.75.{{1..26},X,MT,nc}.fa.gz \
     > ${referenceWD}/oari.fasta
+
+
+# Build bowtie's and samtools indexes
+bowtie2-build \
+    ${referenceWD}/oari.fasta \
+    ${indexWD}/oari &
+
+samtools faidx ${referenceWD}/oari.fasta
+
