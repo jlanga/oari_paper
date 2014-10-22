@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o nounset # Prevent using undefined variables
+set -o errexit # Stop the entire script if an error found
+
 # Environment variables
 rawWD=data/reads/raw
 trimmedWD=data/reads/trimmed
