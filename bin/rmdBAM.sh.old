@@ -1,1 +1,0 @@
-picard-tools MarkDuplicates I=3_1.sort.bam O=3_1.rmd.sort.bam M=dupstat.txt VALIDATION_STRINGENCY=SILENT REMOVE_DUPLICATES=true

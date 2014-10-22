@@ -1,8 +1,0 @@
-samtools mpileup \
-    -B \
-    -Q 0 \
-    -f ../data/reference/osoadna.fasta \
-    ../genome/mapeoOar/1_1.def.bam \
-    ../genome/mapeoOar/2_1.def.bam \
-    ../genome/mapeoOar/3_1.def.bam \
-    > ../genome/popoolation/Fst/3pop.mpileup

@@ -1,2 +1,0 @@
--e -e Adapter Sequence adaptorResults.csv computeCoverage.py convertBAM.sh download.sh downloadReference.sh find.adapters.sh mapeoMT.sh mapeoOSOA.sh popoolation2_1201 popoolation_1.2.2 qualityBAM.sh results.csv rmdBAM.sh sequences.txt sortBAM.sh trimmomatic.sh
-	0

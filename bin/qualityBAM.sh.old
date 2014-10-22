@@ -1,1 +1,0 @@
-samtools view -q20 -f 0x0002 -F 0x0004 -F 0x0008 -b 3_1.rmd.sort.bam > 3_1.q20.rmd.sort.bam
