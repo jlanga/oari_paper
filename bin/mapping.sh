@@ -67,3 +67,6 @@ parallel mapping                    \
     ${mappingWD}/{}.bam             \
     ::: {1..3}_1
 
+
+# Build BAM indexes (.bai)
+parallel samtools index $mappingWD/{}.bam ::: {1..3}_1
