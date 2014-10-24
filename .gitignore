@@ -1,0 +1,10 @@
+*.gz
+*.fasta
+*.fastq
+*.sam
+*.bam
+*.D
+data/*
+results/*
+src/*
+*sublime*
