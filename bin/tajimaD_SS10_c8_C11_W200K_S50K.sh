@@ -85,13 +85,3 @@ parallel                                            \
         $dResultsWD/{2}/{2}.{1}.out                 \
 ::: ${chromosomes[@]}                               \
 ::: {1..3}_1
-
-# Decompress the *.D.gz WITH THE CHROMOSOMES IN NUMERIC ORDER to a D Files 
-for population in {1..3}_1
-do
-    cat /dev/null > ${dWD}/${population}.D
-    for i in {1..26}
-    do
-        pigz -dc ${dWD}/${population}/${population}.${i}.D.gz >> ${dWD}/${population}.D
-    done
-done
